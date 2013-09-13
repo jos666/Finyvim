@@ -81,8 +81,8 @@ set nocompatible
 set backspace=indent,eol,start
 EOF
 	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-	print "run VIM  :BundleList"
-	print "Run VIM  :BundleInstall"
+	echo "run VIM  :BundleList     i to install "
+	echo "Run VIM  :BundleInstall"
 }
 
 
