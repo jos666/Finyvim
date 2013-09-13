@@ -5,7 +5,7 @@ vimrc=~/.vimrc
 checkgit(){
         if [ ! -f  /usr/bin/git ]
         then
-                yum install git 1>/dev/null
+                yum install git -y 1>/dev/null
         fi
 }
 
