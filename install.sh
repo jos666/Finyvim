@@ -11,8 +11,8 @@ checkgit(){
 
 install_vim_pl(){
 #checkgit
-if [ -d ~/.vim ];then mv ~/.vim ~/.vim".$(date +%F)";fi
-if [-f $vimrc ];then mv ~/.vimrv ~/.vimrc".$(date +%F)";fi
+	if [ -d ~/.vim ];then mv ~/.vim ~/.vim".$(date +%F)";fi
+	if [-f $vimrc ];then mv ~/.vimrv ~/.vimrc".$(date +%F)";fi
         cat >> $vimrc <<EOF
 set nocompatible
 filetype off
