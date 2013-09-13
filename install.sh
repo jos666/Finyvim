@@ -11,10 +11,8 @@ checkgit(){
 
 install_vim_pl(){
 #checkgit
-        mkdir -p ~/.vim/autoload ~/.vim/bundle; \
-        curl -Sso ~/.vim/autoload/pathogen.vim \
-            https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
-        mv ~/.vimrc ~/.vimrc.bak
+if [ -d ~/.vim ];then mv ~/.vim ~/.vim".$(date +%F)";fi
+if [-f $vimrc ];then mv ~/.vimrv ~/.vimrc".$(date +%F)";fi
         cat >> $vimrc <<EOF
 set nocompatible
 filetype off
@@ -85,4 +83,8 @@ EOF
 	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 	print "run VIM  :BundleList"
 	print "Run VIM  :BundleInstall"
+}
 
+
+checkgit
+install_vim_pl
