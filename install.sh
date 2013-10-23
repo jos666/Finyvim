@@ -81,7 +81,12 @@ set nocompatible
 set backspace=indent,eol,start
 EOF
 	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-	echo "run VIM  :BundleList     i to install "
+	mkdir /tmp/aa
+        cd /tmp/aa
+        git clone git clone https://github.com/klen/pylama.git
+        cd pylama
+        python setup.py install
+        echo "run VIM  :BundleList     i to install "
 	echo "Run VIM  :BundleInstall"
 }
 
