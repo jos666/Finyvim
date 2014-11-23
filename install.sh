@@ -83,7 +83,7 @@ EOF
 	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 	mkdir /tmp/aa
         cd /tmp/aa
-        git clone git clone https://github.com/klen/pylama.git
+        git clone https://github.com/klen/pylama.git
         cd pylama
         python setup.py install
         echo "run VIM  :BundleList     i to install "
