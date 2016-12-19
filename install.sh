@@ -2,13 +2,13 @@
 
 vimrc=~/.vimrc
 
-checkgit(){
-        if [ ! -f  /usr/bin/git ]
-        then
-                yum install git -y 1>/dev/null
-        fi
+env_check(){
+	[ ! -f  /usr/bin/git ]&& yum install git -y 1>/dev/null
+	[ ! -f /usr/bin/vim ]&& yum install vim -y 1>/dev/null
+	[ ! -f /usr/bin/easy_install ] && yum install python-setuptools -y 1>/dev/null
+	[ ! -f /usr/bin/pip ]&& easy_install -i http://pypi.douban.com/simple/ pip 1>/dev/null
+	[ ! -f /usr/bin/wget ] && yum install wget -y 1>/dev/null
 }
-
 install_vim_pl(){
 #checkgit
 	if [ -d ~/.vim ];then mv ~/.vim ~/.vim".$(date +%F)";fi
@@ -80,16 +80,21 @@ syntax  on
 set nocompatible
 set backspace=indent,eol,start
 EOF
-	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-	mkdir /tmp/aa
-        cd /tmp/aa
-        git clone https://github.com/klen/pylama.git
-        cd pylama
-        python setup.py install
+	cd /tmp
+	[ ! -d  vundle ] && mkdir -p vundle
+	cd vundle
+	wget https://github.com/VundleVim/Vundle.vim/archive/master.zip
+	unzip master.zip
+	[ ! -d ~/.vim/bundle ]&& mkdir -pv ~/.vim/bundle
+	mv Vundle.vim-master  ~/.vim/bundle/vundle
+	rm -f master.zip
+	rm -rf Vundle.vim-master
+	# git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+	pip install -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com pylama 1>/dev/null
+        # git clone https://github.com/klen/pylama.git
         echo "run VIM  :BundleList     i to install "
 	echo "Run VIM  :BundleInstall"
 }
 
-
-checkgit
+env_check
 install_vim_pl
