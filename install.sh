@@ -79,16 +79,17 @@ let g:pymode_folding = 1
 syntax  on
 set nocompatible
 set backspace=indent,eol,start
+set tabstop=4
+set expandtab
 EOF
 	cd /tmp
 	[ ! -d  vundle ] && mkdir -p vundle
 	cd vundle
 	wget https://github.com/VundleVim/Vundle.vim/archive/master.zip
-	unzip master.zip
+	unzip master.zip && rm -f master.zip
 	[ ! -d ~/.vim/bundle ]&& mkdir -pv ~/.vim/bundle
 	mv Vundle.vim-master  ~/.vim/bundle/vundle
-	rm -f master.zip
-	rm -rf Vundle.vim-master
+	[ -d Vundle.vim-master ] && rm -rf Vundle.vim-master
 	# git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 	pip install -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com pylama 1>/dev/null
         # git clone https://github.com/klen/pylama.git
