@@ -92,6 +92,19 @@ EOF
 	[ -d Vundle.vim-master ] && rm -rf Vundle.vim-master
 	# git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 	pip install -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com pylama 1>/dev/null
+    # nerdtree 
+    cd ~/.vim/bundle
+    wget https://github.com/scrooloose/nerdtree/archive/master.zip
+    unzip master.zip && rm -f master.zip
+    [ ! -d nerdtree ] && mv nerdtree-master nerdtree
+    # powerline
+    wget https://github.com/powerline/powerline/archive/master.zip
+    unzip master.zip && rm -f master.zip
+    [ ! -d powerline ]&& mv powerline-master powerline
+    # python-mode
+    wget https://github.com/python-mode/python-mode/archive/master.zip
+    unzip master.zip && rm -f master.zip 
+    [ ! -d python-mode ]&& mv python-mode-master python-mode
         # git clone https://github.com/klen/pylama.git
         echo "run VIM  :BundleList     i to install "
 	echo "Run VIM  :BundleInstall"
